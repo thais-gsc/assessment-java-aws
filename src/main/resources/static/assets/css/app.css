@@ -19,13 +19,21 @@ body {
     color: var(--app-btn-text-gray);
 }
 
-td {
-    padding: 16px 0px;
+table {
+    border-collapse: collapse;
+}
+
+td, th {
+    padding: 24px 0px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.144);
+}
+
+.table-divider {
+    padding-left: 32px;
 }
 
 th {
     font-size: small;
-    padding: 16px 0px;
 }
 
 .app {
@@ -148,7 +156,7 @@ th {
 }
 
 .app-table-wrapper {
-    padding: 16px;
+    /* padding: 16px; */
 }
 
 /* Outros */

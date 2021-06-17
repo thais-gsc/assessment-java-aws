@@ -19,6 +19,9 @@ public class Produto {
     private String descricao;
     private String classificacao;
 
+    public Produto() {
+    }
+
     public Produto(String nome, String fabricante, String descricao, String classificacao) {
         this.nome = nome;
         this.fabricante = fabricante;
@@ -66,7 +69,7 @@ public class Produto {
         this.classificacao = classificacao;
     }
     
-    
+
     // private String tipo;
 
     // public int getId() {
