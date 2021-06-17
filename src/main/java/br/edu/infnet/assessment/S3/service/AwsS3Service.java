@@ -2,6 +2,7 @@ package br.edu.infnet.assessment.S3.service;
 
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.model.CannedAccessControlList;
+import com.amazonaws.services.s3.model.DeleteObjectRequest;
 import com.amazonaws.services.s3.model.PutObjectRequest;
 import java.io.File;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,11 +23,17 @@ public class AwsS3Service {
 
     public boolean upload(File file, String filename, String bucketName) {
         try {
-            amazonS3Client.putObject(new PutObjectRequest(bucketName, filename, file).withCannedAcl(CannedAccessControlList.PublicRead));
+            amazonS3Client.putObject(
+                    new PutObjectRequest(bucketName, filename, file).withCannedAcl(CannedAccessControlList.PublicRead));
             return true;
         } catch (Exception e) {
             return false;
         }
+    }
+
+    public void deleteFromS3Bucket(String url, String bucketName) {
+        String fileName = url.substring(url.lastIndexOf("/") + 1);
+        amazonS3Client.deleteObject(new DeleteObjectRequest(bucketName, fileName));
     }
 
 }
